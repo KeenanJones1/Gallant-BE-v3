@@ -1,0 +1,3 @@
+class WarmProspect < Prospect
+ 
+end

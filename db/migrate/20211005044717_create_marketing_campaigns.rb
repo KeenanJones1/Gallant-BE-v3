@@ -7,7 +7,7 @@ class CreateMarketingCampaigns < ActiveRecord::Migration[6.0]
       t.integer :prospects_reached
       t.string :name
       t.text :description
-
+      t.string :type
       t.timestamps
     end
   end

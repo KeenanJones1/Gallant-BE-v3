@@ -11,7 +11,7 @@ class CreateProspects < ActiveRecord::Migration[6.0]
       t.string :preferred_contact
       t.string :preferred_time
       t.text :message
-
+      t.string :type
       t.timestamps
     end
   end
