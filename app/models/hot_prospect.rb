@@ -1,0 +1,3 @@
+class HotProspect < Prospect
+ 
+end
