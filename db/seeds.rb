@@ -8,4 +8,4 @@
 
 
 User.destroy_all 
-user = User.create(first_name: "Keenan", last_name: "Jones", email:"gallantdispatching@gmail.com", password: "Lionheart12!", password_confirmation:"Lionheart12!", phone_no: "3127579548")
+user = User.create(first_name: "Keenan", last_name: "Jones", email:"gallantdispatching@gmail.com", password: "Lionheart12!", password_confirmation:"Lionheart12!", phone_no: "1111111111")
