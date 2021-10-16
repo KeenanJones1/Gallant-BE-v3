@@ -4,5 +4,6 @@
  # Sophisticated queries (i.e., that are more complex than a simple find); generally speaking, you should never use the where method, or any other query-building methods like it, outside of the model class itself
 
 class ContactList < ApplicationRecord
+ belongs_to :marketing_campaign
  has_many :prospects
 end

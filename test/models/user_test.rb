@@ -26,8 +26,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.save, "Saved user without a password digest being present"
   end
 
-  # test "phone number format should be in 1(XXX)XXX-XXXX" do
-
-  # end
+  test "phone number format should be in 1(XXX)XXX-XXXX" do
+    user = User.new(first_name: "John", last_name: "Doe", email: 'cuz211@gmail.com', phone_no: "22222222", password_digest: "5555")
+    assert_not user.save, "Saved user without correct phone_no format"
+  end
   
 end
