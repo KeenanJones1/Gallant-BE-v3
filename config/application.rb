@@ -1,5 +1,6 @@
 require_relative 'boot'
-
+require 'dotenv'
+Dotenv.load('file1.env', 'file2.env')
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"

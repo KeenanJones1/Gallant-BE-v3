@@ -27,7 +27,7 @@ EMAIL_FORMAT = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
  validates :last_name, presence: true, :length => {:within => 2..40}
  validates :email, presence: true, format: {with: EMAIL_FORMAT}
  validates :phone_no, presence: true, format: {with: PHONE_NUMBER_FORMAT}, :length => {:within => 7..10}
- validates :password, presence: true, :confirmation => true, :length => {:within => 6..40}, format: {with: PASSWORD_FORMAT}
+ validates :password, :confirmation => true, :length => {:within => 6..40}, format: {with: PASSWORD_FORMAT}, :allow_nil => true
 
 
  def send_password_reset
