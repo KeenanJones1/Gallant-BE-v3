@@ -6,4 +6,5 @@ class Authorization
  def current_user
    JsonWebToken.decode(@token)[:user_id] if @token
  end
+
 end
