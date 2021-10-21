@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_175701) do
+ActiveRecord::Schema.define(version: 2021_10_21_181340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2021_10_14_175701) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "marketing_campaign_id", null: false
+    t.index ["marketing_campaign_id"], name: "index_contact_lists_on_marketing_campaign_id"
   end
 
   create_table "marketing_campaigns", force: :cascade do |t|
@@ -34,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_10_14_175701) do
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_marketing_campaigns_on_user_id"
   end
 
   create_table "prospects", force: :cascade do |t|
@@ -50,6 +54,8 @@ ActiveRecord::Schema.define(version: 2021_10_14_175701) do
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "contact_list_id", null: false
+    t.index ["contact_list_id"], name: "index_prospects_on_contact_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,4 +70,7 @@ ActiveRecord::Schema.define(version: 2021_10_14_175701) do
     t.datetime "password_reset_sent_at"
   end
 
+  add_foreign_key "contact_lists", "marketing_campaigns"
+  add_foreign_key "marketing_campaigns", "users"
+  add_foreign_key "prospects", "contact_lists"
 end

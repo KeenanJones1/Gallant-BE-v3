@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   post 'password/forgot', to: 'password#forgot'
   post 'password/reset', to: 'password#reset'
+  post 'auth/create', to: 'auth#create'
+  get 'auth/show', to: 'auth#show'
 end

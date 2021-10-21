@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
 
  has_secure_password
- has_many :marketing_campaigns 
+ has_many :marketing_campaigns
  has_many :contact_lists, through: :marketing_campaigns 
  
  PASSWORD_FORMAT = /\A

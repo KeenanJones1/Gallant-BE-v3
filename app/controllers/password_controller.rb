@@ -17,15 +17,15 @@ class PasswordController < ApplicationController
 
  def reset
   user = User.find_by(token_params)
-   if user.present? && user.password_token_valid?
-    byebug
-     if user.reset_password(params[:user][:password])
+  password = params[:user][:password]
+  password_confirmation = params[:user][:password_confirmation]
+
+   if (user.present? && user.password_token_valid?) && (password == password_confirmation)
+     if user.reset_password(password)
        render json: {
          alert: "Your password has been successfuly reset!"
        }
-
-       
-       session[:user_id] = user.id
+      #  session[:user_id] = user.id
      else
        render json: { error: user.errors.full_messages }, status: :unprocessable_entity
      end
@@ -44,7 +44,7 @@ class PasswordController < ApplicationController
  end
 
  def password_params
-  params.require(:user).permit(:password)
+  params.require(:user).permit(:password, :password_confirmation)
  end
 
 end
