@@ -1,8 +1,8 @@
 class Authentication
  def initialize(user_object)
-   @username = user_object[:username]
+   @email = user_object[:email]
    @password = user_object[:password]
-   @user = User.find_by(username: @username)
+   @user = User.find_by(email: @email)
  end
 
  def authenticate
@@ -12,4 +12,5 @@ class Authentication
  def generate_token
    JsonWebToken.encode(user_id: @user.id)
  end
+
 end  

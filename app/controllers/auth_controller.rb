@@ -2,13 +2,13 @@ class AuthController < ApplicationController
  
  def create
    auth_object = Authentication.new(login_params)
-   user = User.find_by(username: params['email'])
+   user = User.find_by(email: params['email'])
    if auth_object.authenticate
     render json: {
       message: "Login successful!", token: auth_object.generate_token}, status: :ok
   else
     render json: {
-      message: "Incorrect username/password combination"}, status: :unauthorized
+      message: "Incorrect email/password combination"}, status: :unauthorized
   end
  end
 
